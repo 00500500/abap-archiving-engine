@@ -38,7 +38,7 @@ class lclt_ar_db_session implementation.
     INTO @DATA(l_vbeln).
 
     IF sy-subrc NE 0.
-        cl_abap_unit_assert=>fail('NO TEST DATA FOUND').
+        cl_abap_unit_assert=>fail( 'NO TEST DATA FOUND' ).
     ENDIF.
 
     o_cut->fill_internal_tables( l_vbeln ).
