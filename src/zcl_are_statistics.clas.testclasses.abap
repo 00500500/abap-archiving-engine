@@ -43,7 +43,6 @@ CLASS lclt_archive_statistics IMPLEMENTATION.
                                  i_amount = 1 ).
 
     DATA(lt_stats) = o_cut->get_statistcs( ).
-    DATA ls_stat_before TYPE arch_stat.
 
     TRY.
         DATA(ls_statistics) = lt_stats[ tabname = 'VBAK' ].
