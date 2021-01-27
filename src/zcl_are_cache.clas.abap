@@ -28,7 +28,6 @@ public section.
     t_garbage_tables TYPE TABLE OF arch_dele .
   data:
     t_archive_classes TYPE TABLE OF arch_oclas .
-  data R_KEYS type ref to DATA .
   data O_LOG type ref to ZCL_ARE_LOGGER .
 
   methods CLEAR_INTERNAL_TABLES .
@@ -70,8 +69,6 @@ CLASS ZCL_ARE_CACHE IMPLEMENTATION.
     DATA: lo_structdescr TYPE REF TO cl_abap_structdescr,
           lo_tabledescr  TYPE REF TO cl_abap_tabledescr.
 
-    DATA: ls_componets TYPE cl_abap_structdescr=>component.
-
     TRY.
         lo_structdescr ?= cl_abap_typedescr=>describe_by_name( i_tabname ).
       CATCH cx_sy_move_cast_error.
@@ -112,8 +109,6 @@ CLASS ZCL_ARE_CACHE IMPLEMENTATION.
 
 
   METHOD fill_internal_tables.
-
-    DATA lr_table_content TYPE REF TO data.
 
     SELECT *
     FROM arch_def
